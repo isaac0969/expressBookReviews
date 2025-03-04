@@ -15,6 +15,23 @@ const authenticatedUser = (username, password) => {
     return users.some(user => user.username === username && user.password === password);
 };
 
+// Authentication middleware (to protect routes)
+const authenticateJWT = (req, res, next) => {
+    const token = req.header("Authorization")?.split(" ")[1]; // Extract token
+
+    if (!token) {
+        return res.status(403).json({ message: "Access Denied, No token provided" });
+    }
+
+    jwt.verify(token, "secret_key", (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: "Invalid or expired token" });
+        }
+        req.user = user; // Store the decoded user info
+        next(); // Proceed to the next middleware or route handler
+    });
+};
+
 // User login and token generation
 regd_users.post("/login", (req, res) => {
     const { username, password } = req.body;
@@ -34,10 +51,10 @@ regd_users.post("/login", (req, res) => {
 });
 
 // Add a book review (protected route)
-regd_users.put("/auth/review/:isbn", (req, res) => {
+regd_users.put("/auth/review/:isbn", authenticateJWT, (req, res) => {
     const { isbn } = req.params;
     const { review } = req.body;
-    const username = req.user.username;
+    const username = req.user.username; // Extract username from the token
 
     if (!books[isbn]) {
         return res.status(404).json({ message: "Book not found" });
