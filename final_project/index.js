@@ -41,5 +41,12 @@ app.use("/customer/auth/*", (req, res, next) => {
 app.use("/customer", customer_routes);
 app.use("/", genl_routes);
 
-// Start server
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+// Define public_users router (for Task 5 & 6)
+const public_users = express.Router();
+app.use("/", public_users);
+
+// Sample books object (Ensure this exists in your project)
+const books = {
+    "12345": {
+        title: "Sample Book",
+        reviews: ["Great book!",
