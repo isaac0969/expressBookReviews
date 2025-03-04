@@ -10,6 +10,7 @@ public_users.post("/register", (req, res) => {
   return res.status(300).json({ message: "Yet to be implemented" });
 });
 
+// Book-related routes
 // Get the book list available in the shop
 public_users.get('/', (req, res) => {
   return res.status(300).json({ message: "Yet to be implemented" });
@@ -19,7 +20,7 @@ public_users.get('/', (req, res) => {
 public_users.get('/isbn/:isbn', (req, res) => {
   return res.status(300).json({ message: "Yet to be implemented" });
 });
-  
+
 // Get book details based on author
 public_users.get('/author/:author', (req, res) => {
   return res.status(300).json({ message: "Yet to be implemented" });
@@ -30,6 +31,7 @@ public_users.get('/title/:title', (req, res) => {
   return res.status(300).json({ message: "Yet to be implemented" });
 });
 
+// Review-related routes
 // Get book review based on ISBN
 public_users.get('/review/:isbn', (req, res) => {
   return res.status(300).json({ message: "Yet to be implemented" });
