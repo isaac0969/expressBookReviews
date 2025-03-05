@@ -19,7 +19,7 @@ app.use("/customer", session({
     saveUninitialized: true
 }));
 
-// JWT Authentication Middleware
+// JWT Authentication Middleware for routes that require authentication
 app.use("/customer/auth/*", (req, res, next) => {
     const token = req.headers.authorization; // Extract token from Authorization header
 
@@ -38,15 +38,14 @@ app.use("/customer/auth/*", (req, res, next) => {
 });
 
 // Routes for authenticated users and general users
-app.use("/customer", customer_routes);
-app.use("/", genl_routes);
+app.use("/customer", customer_routes); // Route for customer-related actions
+app.use("/", genl_routes); // General routes accessible to everyone
 
-// Define public_users router (for Task 5 & 6)
+// Define public_users router (for Task 5 & 6) if needed
 const public_users = express.Router();
 app.use("/", public_users);
 
-// Sample books object (Ensure this exists in your project)
-const books = {
-    "12345": {
-        title: "Sample Book",
-        reviews: ["Great book!",
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
