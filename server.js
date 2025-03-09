@@ -51,7 +51,7 @@ const public_users = express.Router();
 // Route to get the list of all books (Task 1)
 public_users.get("/", (req, res) => {
     const books = require('./booksdb');  // Import books data from booksdb.js
-    return res.status(200).json({ books: JSON.stringify(books, null, 2) });
+    return res.status(200).json({ books: JSON.stringify(books, null, 2) });  // Neatly format books data
 });
 
 // Route to get book details based on ISBN (Task 2)
