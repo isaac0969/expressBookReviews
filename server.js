@@ -46,13 +46,12 @@ app.use("/customer", customer_routes); // Customer routes
 app.use("/", genl_routes); // General routes
 
 // Public users router (for Task 1 & 2)
-return res.status(200).json({ books: JSON.stringify(books, null, 2) });  // Neatly format books data
-
+const public_users = express.Router();
 
 // Route to get the list of all books (Task 1)
 public_users.get("/", (req, res) => {
     const books = require('./booksdb');  // Import books data from booksdb.js
-    return res.status(200).json({ books: JSON.stringify(books, null, 2) });  // Neatly format books data
+    return res.status(200).json(books);  // Return books data as JSON
 });
 
 // Route to get book details based on ISBN (Task 2)
@@ -61,7 +60,7 @@ public_users.get('/isbn/:isbn', (req, res) => {
     const { isbn } = req.params;  // Get the ISBN from the request parameters
 
     // Find the book with the matching ISBN
-    const book = books.find(b => b.isbn === isbn);
+    const book = books[isbn];
 
     if (book) {
         return res.status(200).json(book);  // Return the book details as JSON
@@ -77,7 +76,7 @@ public_users.get('/author/:author', (req, res) => {
     let booksByAuthor = [];
 
     // Find books by the specified author
-    books.forEach(book => {
+    Object.values(books).forEach(book => {
         if (book.author.toLowerCase() === author.toLowerCase()) {
             booksByAuthor.push(book);
         }
@@ -97,7 +96,7 @@ public_users.get('/title/:title', (req, res) => {
     let booksByTitle = [];
 
     // Find books by the specified title
-    books.forEach(book => {
+    Object.values(books).forEach(book => {
         if (book.title.toLowerCase().includes(title)) {
             booksByTitle.push(book);
         }
@@ -116,7 +115,7 @@ public_users.get('/reviews/:isbn', (req, res) => {
     const { isbn } = req.params;  // Get the ISBN from the request parameters
 
     // Find the book with the matching ISBN
-    const book = books.find(b => b.isbn === isbn);
+    const book = books[isbn];
 
     if (book) {
         return res.status(200).json(book.reviews);  // Return the reviews for the book
