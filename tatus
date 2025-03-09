@@ -1,0 +1,39 @@
+[33m8753309[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Updated server.js with authentication and public routes
+[33m3005f58[m Updated package.json for correct dependencies and main file
+[33m3ef42ab[m Updated server.js with Task 3 (Get Books by Author) route
+[33mb351c53[m Create server.js
+[33m022083e[m Updated index.js with refactored code
+[33mb22585f[m Update index.js with fixes
+[33m4aded38[m Update index.js
+[33m5cc081a[m Update general.js
+[33m3017c9d[m Update auth_users.js
+[33m33e6aa7[m Update index.js
+[33mfc992da[m Update general.js
+[33m68c3a25[m Update general.js
+[33m2f0c699[m Update booksdb.js
+[33mea805d9[m Update general.js
+[33m6c30eed[m Update index.js
+[33meba02a7[m Update general.js
+[33m974547c[m Update auth_users.js
+[33mc2e649b[m Update booksdb.js
+[33m901fa12[m Update package.json
+[33m43ae3d5[m Update auth_users.js
+[33m3f84837[m Update index.js
+[33mfa6bb07[m Update .gitignore
+[33macde2ef[m Removed practice proj
+[33m583a76c[m Changed the file
+[33m87df187[m Create package.json
+[33m07ddfec[m Create auth_users.js
+[33m8eaab21[m Create booked.js
+[33mcbeafb1[m Create general.js
+[33m92a2884[m Update index.js
+[33m2e0a497[m Delete practiceuser.js
+[33mf0e1598[m Made changes to store username in session
+[33mf0209f0[m Changed the POST endpoint route to '/'
+[33m4c711c3[m Added jsonwebtoken module
+[33m82928c4[m made some code cleanup
+[33mae67bd0[m improvised login and registration
+[33m36532fc[m Added session code
+[33m2d53cb0[m added sample structure
+[33m7ceca9c[m Added practice project
+[33mf509e5e[m Initial commit
