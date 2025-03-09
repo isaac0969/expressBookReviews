@@ -46,7 +46,8 @@ app.use("/customer", customer_routes); // Customer routes
 app.use("/", genl_routes); // General routes
 
 // Public users router (for Task 1 & 2)
-const public_users = express.Router();
+return res.status(200).json({ books: JSON.stringify(books, null, 2) });  // Neatly format books data
+
 
 // Route to get the list of all books (Task 1)
 public_users.get("/", (req, res) => {
